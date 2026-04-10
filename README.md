@@ -131,7 +131,7 @@ services:
       - ./Tailscale/config:/config
       - ./Tailscale/tailscale:/var/lib/tailscale
 ```
-Set the **\<Tailscale OAUTH secret\>** to the secret obtained in Generating an OAUTH credential !!! ADD A GH LINK !!! REMOVE DOMAIN FROM COMPOSE
+Set the **\<Tailscale OAUTH secret\>** to the secret obtained in Generating an OAUTH credential
 ### Funnel config
 Create the directory `./Tailscale/config/`
 Paste the following JSON into `./Tailscale/config/serve.json`
