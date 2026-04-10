@@ -191,7 +191,9 @@ This is done through the environment variables for the VaultWarden docker contai
 ...
 ```
 After changing this setting, you need to restart the container fully.
+
 `# docker compose down vaultwarden`
+
 `# docker compose up -d vaultwarden`
 
 To allow account creation again, simply follow the same steps, but set `false` to `true`
