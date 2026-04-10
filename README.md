@@ -24,7 +24,7 @@ Docker allows for containerization of services in a way which are declarative an
 
 Even if another container gains root privileges within the container, it cannot affect another container.
 
-Ignoring the security benefits, docker also makes deployment of containers trivial, and ensures sources are verified to be who they claim to be.
+Ignoring the security benefits, Docker also makes deployment of containers trivial, and ensures sources are verified to be who they claim to be.
 ## What is this repository?
 This repository is a simple to follow base, and tutorial to setup a self-hosted Vaultwarden instance, connected to Tailscale, within a docker environment on basically any x86-64 docker host (Windows and MacOS are not tested, but should work).
 
@@ -95,7 +95,6 @@ services:
     restart: unless-stopped
     network_mode: service:vwts
     environment:
-
       # Set to false after wanted users are created
       - SIGNUPS_ALLOWED=true
 
