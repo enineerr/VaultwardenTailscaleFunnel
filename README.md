@@ -37,7 +37,7 @@ Funnel also provides a simple, and secure process to get HTTPs certificates for 
 Vaultwarden also explicitly recommends [against using it's own built in HTTPs support, as it is not security-verified, and has bugs](https://github.com/dani-garcia/vaultwarden/wiki/Enabling-HTTPS). Therefore, recommends using a reverse proxy (such as Tailscale Funnel).
 
 ## Access Flowchart
-![](SecureFlow.png)
+![](/Images/SecureFlow.png)
 # Getting Started
 > \[!NOTE]
 > Tailscale Funnel does not allow anything more than web traffic -- VaultWarden's main purpose (password manager) falls under this, however, its file sharing feature (Send) does not. It will not work over Funnel, and could result in the termination of your Funnel, or even Tailscale account.
