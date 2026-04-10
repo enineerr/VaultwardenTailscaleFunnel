@@ -1,0 +1,42 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest-alpine
+    container_name: vw
+    restart: unless-stopped
+    network_mode: service:vwts
+    environment:
+      # Set to false after wanted users are created
+      - SIGNUPS_ALLOWED=true
+
+      # Uncomment, and fill data to enable Push notifications
+      # - PUSH_ENABLED=true
+      # - PUSH_INSTALLATION_ID=
+      # - PUSH_INSTALLATION_KEY=
+
+      # Set value, uncomment, restart, and use value as password for admin panel.
+      # It is recommended to keep the admin panel disabled unless needed.
+      # - ADMIN_TOKEN=
+      # To properly disable, comment the token, and
+      # remove "admin_token" key from ./VaultWarden/config.json
+
+      # This is needed for tailscale to operate properly
+      - IP_HEADER=X-Forwarded-For
+    volumes:
+      - ./VaultWarden/:/data/
+  vwts:
+    image: tailscale/tailscale:latest
+    container_name: ts
+    restart: unless-stopped
+    environment:
+      # Place your TS auth code replacing "<>"
+      - "TS_AUTHKEY=<Tailscale OAUTH secret>?ephemeral=false&preauthorized=true"
+      - TS_HOSTNAME=vw
+      - "TS_EXTRA_ARGS=--advertise-tags=tag:vw"
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_ACCEPT_DNS=y
+    cap_add:
+      - net_admin
+    volumes:
+      - ./Tailscale/config:/config
+      - ./Tailscale/tailscale:/var/lib/tailscale

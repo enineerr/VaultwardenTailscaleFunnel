@@ -1,0 +1,19 @@
+{
+    "TCP": {
+      "8443": {
+        "HTTPS": true
+      }
+    },
+    "Web": {
+      "${TS_CERT_DOMAIN}:8443": {
+        "Handlers": {
+          "/": {
+            "Proxy": "http://127.0.0.1:80"
+          }
+        }
+      }
+    },
+    "AllowFunnel": {
+      "${TS_CERT_DOMAIN}:8443": true
+    }
+}
