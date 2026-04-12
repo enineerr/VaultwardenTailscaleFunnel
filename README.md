@@ -1,5 +1,3 @@
-# Table of Contents
-
 # Description
 ## What is a password manager
 Password managers are tools to store user credentials and keys. Many options are widely used, albeit likely poor choices. They allow for users to have significantly more complex passwords while removing the need to memorize all of them, as well as bypassing keylogging.
